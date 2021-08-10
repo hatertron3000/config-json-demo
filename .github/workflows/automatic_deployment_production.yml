@@ -4,7 +4,7 @@ name: Deploy Theme to Store
 on:
   workflow_dispatch:
   push:
-    branches: [ master, main ]
+    branches: [ master, main, ]
 
 jobs:
   build:
@@ -31,6 +31,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
+    - name: Configure theme settings
+      env:
+        MY_SETTING: ${{ secrets.MY_SETTING }}
+      run: npm run config
+    
     - name: Install Stencil CLI Dependency
       run: npm install -g @bigcommerce/stencil-cli
 

@@ -70,6 +70,7 @@
     "lighthouse": "npx lighthouse --config-path=lighthouse-config.js --quiet --output json --chrome-flags=\"--headless\" $URL | jq '.audits | map_values(.rawValue)'",
     "test": "npx jest",
     "stylelint": "npx stylelint **/*.scss",
+    "config": "node scripts/deploy.js",
     "stylelint:fix": "npx stylelint --fix **/*.scss"
   }
 }
